@@ -10,9 +10,6 @@ export const ProductList = () => {
   const { data, isLoading, refetch } = useListProducts({ page });
   const [products, setProducts] = useState<Array<Product>>([]);
 
-  console.log(products.length);
-  console.log(data?.count);
-
   useEffect(() => {
     if (data) {
       setPage((prev) => prev + 1);
@@ -30,6 +27,8 @@ export const ProductList = () => {
         <InfiniteScroll
           dataLength={Number(data?.count)} //This is important field to render the next data
           next={refetch}
+          style={{ overflow: "visible" }}
+          className="flex flex-col gap-4"
           hasMore={Number(data?.count) > products.length}
           loader={<ProductCard />}
         >

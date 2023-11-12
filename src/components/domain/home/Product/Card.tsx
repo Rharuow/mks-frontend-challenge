@@ -69,8 +69,10 @@ export const ProductCard = ({ product }: { product?: Product }) => {
         $borderBottom={8}
         className="w-full flex justify-center items-center gap-4 disabled:bg-slate-400"
       >
-        <ShoppingBag size={14} className="text-white" />
-        <Span>Comprar</Span>
+        <ShoppingBag size={14} color="#fff" />
+        <Span $fontWeight={600} $fontSize={14}>
+          Comprar
+        </Span>
       </Button>
     </CardContainer>
   );
