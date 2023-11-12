@@ -8,13 +8,7 @@ const DEFAULTSORTBY = "id";
 
 export const useListProducts = (params?: ProductParams) => {
   return useQuery({
-    queryKey: [
-      "list-products",
-      params?.page || DEFAULTPAGE,
-      params?.orderBy || DEFAULTORDERBY,
-      params?.rows || DEFAULTORDERBY,
-      params?.sortBy || DEFAULTSORTBY,
-    ],
+    queryKey: ["list-products"],
     queryFn: () =>
       listProducts({
         orderBy: params?.orderBy || DEFAULTORDERBY,
