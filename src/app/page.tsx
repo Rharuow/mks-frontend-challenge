@@ -1,9 +1,9 @@
-import { ProductCard } from "@/components/domain/home/ProductCard";
+import { ProductList } from "@/components/domain/home/Product/List";
 
 export default function Home() {
   return (
     <main className="grow p-16 py-4">
-      <ProductCard />
+      <ProductList />
     </main>
   );
 }
