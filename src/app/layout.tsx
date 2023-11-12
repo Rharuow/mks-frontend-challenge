@@ -29,7 +29,7 @@ export default function RootLayout({
           <TanstackProvider>
             <ThemeProvider
               attribute="class"
-              defaultTheme="dark"
+              defaultTheme="light"
               disableTransitionOnChange
             >
               <HeaderContainer>
