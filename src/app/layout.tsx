@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import { HeaderContainer } from "@/components/styledComponents/Header";
 import { FooterContainer } from "@/components/styledComponents/Footer";
 import { Span } from "@/components/styledComponents/Text";

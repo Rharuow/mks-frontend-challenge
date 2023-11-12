@@ -12,16 +12,19 @@ export type Product = {
 };
 
 export type ProductParams = {
-  page: number;
-  rows: number;
-  sortBy: string;
-  orderBy: string;
+  page?: number;
+  rows?: number;
+  sortBy?: string;
+  orderBy?: string;
 };
 
 export const listProducts = async (params: ProductParams) => {
-  const products = await api.get<Product>("/products", {
-    params,
-  });
+  const products = await api.get<{ count: number; products: Array<Product> }>(
+    "/products",
+    {
+      params,
+    }
+  );
 
   return products.data;
 };
