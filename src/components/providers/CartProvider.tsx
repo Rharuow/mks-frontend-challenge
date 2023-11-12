@@ -9,7 +9,9 @@ import React, {
   useState,
 } from "react";
 
-export type ProductsCart = Array<Product & { quantity: number }>;
+export type ProductCart = Product & { quantity: number };
+
+export type ProductsCart = Array<ProductCart>;
 
 const CartContext = createContext<{
   products: ProductsCart;
@@ -41,13 +43,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const decreaseProductQuantity = (productId: number) => {
     setProducts((prev) =>
-      prev
-        .map((cartProduct) =>
-          cartProduct.id === productId
-            ? { ...cartProduct, quantity: cartProduct.quantity - 1 }
-            : cartProduct,
-        )
-        .filter((cartProduct) => cartProduct.quantity > 0),
+      prev.map((cartProduct) =>
+        cartProduct.id === productId
+          ? {
+              ...cartProduct,
+              quantity: cartProduct.quantity > 1 ? cartProduct.quantity - 1 : 1,
+            }
+          : cartProduct,
+      ),
     );
   };
 
