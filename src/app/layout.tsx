@@ -7,6 +7,7 @@ import { TanstackProvider } from "@/components/providers/TanstackProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { HeaderLayout } from "@/components/ui/HeaderLayout";
 import { FooterLayout } from "@/components/ui/FooterLayout";
+import { CartProvider } from "@/components/providers/CartProvider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -30,9 +31,11 @@ export default function RootLayout({
               defaultTheme="light"
               disableTransitionOnChange
             >
-              <HeaderLayout />
-              {children}
-              <FooterLayout />
+              <CartProvider>
+                <HeaderLayout />
+                {children}
+                <FooterLayout />
+              </CartProvider>
             </ThemeProvider>
           </TanstackProvider>
         </DeviseProvider>
