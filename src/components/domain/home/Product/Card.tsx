@@ -12,7 +12,7 @@ import { ButtonToAddProductAtCart } from "./ButtonToAddProductAtCart";
 export const ProductCard = ({ product }: { product?: Product }) => {
   return (
     <CardContainer className="flex flex-col items-center">
-      <div className="flex w-full flex-col items-center justify-between p-3">
+      <div className="flex w-full flex-col items-center justify-between p-3 md:h-full">
         {product?.photo ? (
           <Image
             src={product.photo}
@@ -21,7 +21,7 @@ export const ProductCard = ({ product }: { product?: Product }) => {
             width={0}
             priority
             sizes="100vw"
-            className="h-auto w-full px-5"
+            className="h-auto w-full px-5 md:h-[138px] md:w-auto"
           />
         ) : (
           <Skeleton width={127} height={158} />
