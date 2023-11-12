@@ -1,4 +1,3 @@
-import { ShoppingBag } from "lucide-react";
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 import Image from "next/image";
@@ -7,6 +6,8 @@ import { Button } from "@/components/styledComponents/Button";
 import { CardContainer } from "@/components/styledComponents/Card";
 import { P, Span } from "@/components/styledComponents/Text";
 import { Product } from "@/service/resources/products";
+
+import { ButtonToAddProductAtCart } from "./ButtonToAddProductAtCart";
 
 export const ProductCard = ({ product }: { product?: Product }) => {
   return (
@@ -64,16 +65,7 @@ export const ProductCard = ({ product }: { product?: Product }) => {
           )}
         </div>
       </div>
-      <Button
-        disabled={!product}
-        $borderBottom={8}
-        className="w-full flex justify-center items-center gap-4 disabled:bg-slate-400"
-      >
-        <ShoppingBag size={14} color="#fff" />
-        <Span $fontWeight={600} $fontSize={14}>
-          Comprar
-        </Span>
-      </Button>
+      <ButtonToAddProductAtCart product={product} />
     </CardContainer>
   );
 };
