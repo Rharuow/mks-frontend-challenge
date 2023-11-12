@@ -31,10 +31,10 @@ export const ProductList = () => {
           .map((_, index) => <ProductCard key={index} />)
       ) : products.length > 0 ? (
         <InfiniteScroll
-          dataLength={Number(data?.count)} //This is important field to render the next data
+          dataLength={Number(data?.count)}
           next={refetch}
           style={{ overflow: "visible" }}
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-4 md:grid md:grid-cols-2 lg:grid-cols-4"
           hasMore={Number(data?.count) > products.length}
           loader={<ProductCard />}
         >
