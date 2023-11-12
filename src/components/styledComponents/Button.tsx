@@ -5,16 +5,19 @@ import styled from "styled-components";
 type Variant = "primary" | "secondary" | "dark" | "outline";
 
 export const Button = styled.button<{
-  $borderRadius?: "sm";
+  $borderRadius?: "sm" | "none";
   $borderTop?: number;
   $borderBottom?: number;
   $variant?: Variant | string;
+  $color?: string;
   $paddingX?: number;
   $paddingY?: number;
   $padding?: number;
 }>`
   background-color: ${(props) =>
-    props.$variant ? `var(--${props.$variant})` : "var(--primary)"};
+    props.$variant
+      ? `var(--${props.$variant})`
+      : props.$color ?? "var(--primary)"};
   padding: ${(props) =>
     props.$padding
       ? `${props.$padding}px`
@@ -26,6 +29,8 @@ export const Button = styled.button<{
       ? `${props.$borderTop}px ${props.$borderTop}px 0 0`
       : props.$borderBottom
       ? `0 0 ${props.$borderBottom}px ${props.$borderBottom}px`
+      : props.$borderRadius === "none"
+      ? 0
       : `${8}px`};
   display: flex;
   align-items: center;

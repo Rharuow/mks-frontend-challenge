@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { ShoppingBag } from "lucide-react";
+import toast from "react-hot-toast";
 
 import { Button } from "@/components/styledComponents/Button";
 import { Span } from "@/components/styledComponents/Text";
@@ -24,6 +25,7 @@ export const ButtonToAddProductAtCart = ({
           products.some((prod) => product.id === prod.id)
             ? increaseProductQuantity(product.id)
             : addProductToCart(product);
+        toast.success(`${product?.name} adicionado`);
       }}
       className="flex w-full items-center justify-center gap-4 disabled:bg-slate-400"
     >

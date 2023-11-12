@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Toaster } from "react-hot-toast";
 import { DeviseProvider } from "@/components/providers/DeviseProvider";
 import { TanstackProvider } from "@/components/providers/TanstackProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
@@ -31,6 +32,7 @@ export default function RootLayout({
               defaultTheme="light"
               disableTransitionOnChange
             >
+              <Toaster />
               <CartProvider>
                 <HeaderLayout />
                 {children}

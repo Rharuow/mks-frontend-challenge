@@ -15,7 +15,11 @@ export const TanstackProvider = ({
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ReactQueryDevtools
+        initialIsOpen={false}
+        position="top"
+        buttonPosition="bottom-left"
+      />
     </QueryClientProvider>
   );
 };
