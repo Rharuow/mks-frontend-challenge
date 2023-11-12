@@ -1,17 +1,18 @@
-import { ShoppingBag } from "lucide-react";
 import React from "react";
 import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 import { Button } from "@/components/styledComponents/Button";
 import { CardContainer } from "@/components/styledComponents/Card";
 import { P, Span } from "@/components/styledComponents/Text";
 import { Product } from "@/service/resources/products";
-import Image from "next/image";
+
+import { ButtonToAddProductAtCart } from "./ButtonToAddProductAtCart";
 
 export const ProductCard = ({ product }: { product?: Product }) => {
   return (
     <CardContainer className="flex flex-col items-center">
-      <div className="w-full flex flex-col items-center justify-between p-3">
+      <div className="flex w-full flex-col items-center justify-between p-3">
         {product?.photo ? (
           <Image
             src={product.photo}
@@ -25,7 +26,7 @@ export const ProductCard = ({ product }: { product?: Product }) => {
         ) : (
           <Skeleton width={127} height={158} />
         )}
-        <div className="w-full flex justify-between gap-1 p-3">
+        <div className="flex w-full justify-between gap-1 p-3">
           {product?.name ? (
             <P $textColor="var(--text-dark)" $fontWeight={400}>
               {product.name}
@@ -55,7 +56,7 @@ export const ProductCard = ({ product }: { product?: Product }) => {
               $textColor="var(--text-dark)"
               $fontSize={10}
               $fontWeight={300}
-              className="leading-3 text-justify hyphens-auto whitespace-pre-line"
+              className="hyphens-auto whitespace-pre-line text-justify leading-3"
             >
               {product.description}
             </P>
@@ -64,14 +65,7 @@ export const ProductCard = ({ product }: { product?: Product }) => {
           )}
         </div>
       </div>
-      <Button
-        disabled={!product}
-        $borderBottom={8}
-        className="w-full flex justify-center items-center gap-4 disabled:bg-slate-400"
-      >
-        <ShoppingBag size={14} className="text-white" />
-        <Span>Comprar</Span>
-      </Button>
+      <ButtonToAddProductAtCart product={product} />
     </CardContainer>
   );
 };
