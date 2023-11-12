@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className + " min-h-screen flex flex-col"}>
+      <body className={montserrat.className + " flex min-h-screen flex-col"}>
         <DeviseProvider>
           <TanstackProvider>
             <ThemeProvider

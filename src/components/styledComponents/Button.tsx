@@ -2,11 +2,13 @@
 
 import styled from "styled-components";
 
+type Variant = "primary" | "secondary" | "dark" | "outline";
+
 export const Button = styled.button<{
   $borderRadius?: "sm";
   $borderTop?: number;
   $borderBottom?: number;
-  $variant?: "primary" | "secondary" | "dark" | "outline";
+  $variant?: Variant | string;
   $paddingX?: number;
   $paddingY?: number;
   $padding?: number;

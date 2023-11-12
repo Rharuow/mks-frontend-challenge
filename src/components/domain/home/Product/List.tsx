@@ -24,7 +24,7 @@ export const ProductList = () => {
   }, [data]);
 
   return (
-    <div className="flex flex-col gap-4 grow h-full">
+    <div className="flex h-full grow flex-col gap-4">
       {isLoading ? (
         Array(2)
           .fill(null)
@@ -43,7 +43,7 @@ export const ProductList = () => {
           ))}
         </InfiniteScroll>
       ) : (
-        <div className="flex flex-col items-center justify-center grow">
+        <div className="flex grow flex-col items-center justify-center">
           <Lottie className="w-[220px]" animationData={empty} loop={true} />
           <Span
             $textColor="#000"

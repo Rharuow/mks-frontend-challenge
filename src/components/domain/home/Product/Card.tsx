@@ -12,7 +12,7 @@ import { ButtonToAddProductAtCart } from "./ButtonToAddProductAtCart";
 export const ProductCard = ({ product }: { product?: Product }) => {
   return (
     <CardContainer className="flex flex-col items-center">
-      <div className="w-full flex flex-col items-center justify-between p-3">
+      <div className="flex w-full flex-col items-center justify-between p-3">
         {product?.photo ? (
           <Image
             src={product.photo}
@@ -26,7 +26,7 @@ export const ProductCard = ({ product }: { product?: Product }) => {
         ) : (
           <Skeleton width={127} height={158} />
         )}
-        <div className="w-full flex justify-between gap-1 p-3">
+        <div className="flex w-full justify-between gap-1 p-3">
           {product?.name ? (
             <P $textColor="var(--text-dark)" $fontWeight={400}>
               {product.name}
@@ -56,7 +56,7 @@ export const ProductCard = ({ product }: { product?: Product }) => {
               $textColor="var(--text-dark)"
               $fontSize={10}
               $fontWeight={300}
-              className="leading-3 text-justify hyphens-auto whitespace-pre-line"
+              className="hyphens-auto whitespace-pre-line text-justify leading-3"
             >
               {product.description}
             </P>

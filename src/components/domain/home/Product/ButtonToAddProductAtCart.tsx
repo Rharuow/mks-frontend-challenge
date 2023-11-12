@@ -12,15 +12,20 @@ export const ButtonToAddProductAtCart = ({
 }: {
   product: Product | undefined;
 }) => {
-  const { setProducts } = useCartContext();
+  const { addProductToCart, products, increaseProductQuantity } =
+    useCartContext();
+
   return (
     <Button
       disabled={!product}
       $borderBottom={8}
       onClick={() => {
-        product && setProducts((prev) => [...prev, product]);
+        if (product)
+          products.some((prod) => product.id === prod.id)
+            ? increaseProductQuantity(product.id)
+            : addProductToCart(product);
       }}
-      className="w-full flex justify-center items-center gap-4 disabled:bg-slate-400"
+      className="flex w-full items-center justify-center gap-4 disabled:bg-slate-400"
     >
       <ShoppingBag size={14} color="#fff" />
       <Span $fontWeight={600} $fontSize={14}>
