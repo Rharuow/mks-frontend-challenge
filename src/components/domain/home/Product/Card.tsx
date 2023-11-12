@@ -1,12 +1,12 @@
 import { ShoppingBag } from "lucide-react";
 import React from "react";
 import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 import { Button } from "@/components/styledComponents/Button";
 import { CardContainer } from "@/components/styledComponents/Card";
 import { P, Span } from "@/components/styledComponents/Text";
 import { Product } from "@/service/resources/products";
-import Image from "next/image";
 
 export const ProductCard = ({ product }: { product?: Product }) => {
   return (
