@@ -13,7 +13,7 @@ export const HeaderLayout = () => {
   const { products } = useCartContext();
 
   return (
-    <HeaderContainer>
+    <HeaderContainer data-testid="header-container">
       <Span $fontWeight={600} $fontSize={32}>
         MKS{" "}
         <Span $fontSize={16} $fontWeight={300}>
@@ -22,7 +22,11 @@ export const HeaderLayout = () => {
       </Span>
       <Sheet>
         <SheetTrigger asChild>
-          <Button $variant="secondary" className="gap-[10px]">
+          <Button
+            data-testid="button-shopping-cart"
+            $variant="secondary"
+            className="gap-[10px]"
+          >
             <ShoppingCart size={12} />{" "}
             <Span $textColor="#000" $fontSize={12} $fontWeight={700}>
               {products.length}
