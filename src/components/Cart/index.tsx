@@ -14,7 +14,7 @@ import { Button } from "../styledComponents/Button";
 export const CartComponent = () => {
   const { products, total } = useCartContext();
   return (
-    <SheetContent className="flex flex-col gap-4 overflow-scroll bg-[var(--primary)] p-0">
+    <>
       <SheetHeader className="p-6">
         <SheetTitle>
           <P $fontWeight={700} $fontSize={27} className="text-left">
@@ -62,6 +62,6 @@ export const CartComponent = () => {
           </Button>
         </div>
       )}
-    </SheetContent>
+    </>
   );
 };

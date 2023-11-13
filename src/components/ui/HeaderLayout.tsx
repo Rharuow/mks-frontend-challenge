@@ -5,7 +5,7 @@ import { ShoppingCart } from "lucide-react";
 import { HeaderContainer } from "../styledComponents/Header";
 import { Span } from "../styledComponents/Text";
 import { Button } from "../styledComponents/Button";
-import { Sheet, SheetTrigger } from "./Sheet";
+import { Sheet, SheetContent, SheetTrigger } from "./Sheet";
 import { CartComponent } from "../Cart";
 import { useCartContext } from "../providers/CartProvider";
 
@@ -33,8 +33,12 @@ export const HeaderLayout = () => {
             </Span>
           </Button>
         </SheetTrigger>
-
-        <CartComponent />
+        <SheetContent
+          data-testid="sheet-content"
+          className="flex flex-col gap-4 overflow-scroll bg-[var(--primary)] p-0"
+        >
+          <CartComponent />
+        </SheetContent>
       </Sheet>
     </HeaderContainer>
   );
