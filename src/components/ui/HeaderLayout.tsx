@@ -35,7 +35,7 @@ export const HeaderLayout = () => {
         </SheetTrigger>
         <SheetContent
           data-testid="sheet-content"
-          className="flex flex-col gap-4 overflow-scroll bg-[var(--primary)] p-0"
+          className="flex flex-col gap-4 overflow-y-scroll bg-[var(--primary)] p-0"
         >
           <CartComponent />
         </SheetContent>
