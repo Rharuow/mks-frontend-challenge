@@ -2,10 +2,11 @@
 
 import styled from "styled-components";
 
-type Variant = "primary" | "secondary" | "dark" | "outline";
+type Variant = "primary" | "secondary" | "dark" | "outline" | "black";
 
 export const Button = styled.button<{
   $borderRadius?: "sm" | "none";
+  $rounded?: boolean;
   $borderTop?: number;
   $borderBottom?: number;
   $variant?: Variant | string;
@@ -23,7 +24,9 @@ export const Button = styled.button<{
       ? `${props.$padding}px`
       : `${props.$paddingY || 8}px ${props.$paddingX || 8}px`};
   border-radius: ${(props) =>
-    props.$borderRadius === "sm"
+    props.$rounded
+      ? "100%"
+      : props.$borderRadius === "sm"
       ? `${5}px`
       : props.$borderTop
       ? `${props.$borderTop}px ${props.$borderTop}px 0 0`
