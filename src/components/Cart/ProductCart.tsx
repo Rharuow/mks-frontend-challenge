@@ -27,6 +27,7 @@ export const ProductCartComponent = ({ product }: { product: ProductCart }) => {
     >
       <Button
         $rounded
+        $padding={isMobile ? 8 : 4}
         $variant={isMobile ? "outline" : "black"}
         className="self-end md:absolute md:right-[-15px] md:top-[-15px]"
         onClick={() => removeProductFromCart(product.id)}
@@ -47,10 +48,10 @@ export const ProductCartComponent = ({ product }: { product: ProductCart }) => {
           {product.name}
         </Span>
       </div>
-      <div className="flex justify-between md:col-span-2 md:items-center">
-        <div className="flex flex-col gap-1">
+      <div className="flex justify-around md:col-span-2 md:items-center">
+        <div className="flex flex-col gap-1 md:relative md:justify-center">
           <Span
-            className="hidden md:inline-block"
+            className="hidden md:absolute md:top-[-15px] md:inline-block"
             $fontSize={9}
             $textColor="black"
           >
@@ -84,8 +85,12 @@ export const ProductCartComponent = ({ product }: { product: ProductCart }) => {
         </div>
 
         <div className="flex flex-col justify-center">
-          <Button $variant="dark" disabled>
-            <Span $fontWeight={700} $fontSize={15} $textColor="#fff">
+          <Button $variant={isMobile ? "dark" : "outline"} disabled>
+            <Span
+              $fontWeight={700}
+              $fontSize={15}
+              $textColor={isMobile ? "#fff" : "#000"}
+            >
               R$
               {Number(Number(product.price) * product.quantity).toLocaleString(
                 "pt-BR",
