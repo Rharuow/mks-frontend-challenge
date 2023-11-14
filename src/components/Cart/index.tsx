@@ -1,18 +1,30 @@
 "use client";
 import React from "react";
 import Lottie from "lottie-react";
-import toast from "react-hot-toast";
+import { loadStripe } from "@stripe/stripe-js";
 
-import { SheetContent, SheetHeader, SheetTitle } from "../ui/Sheet";
+import { SheetHeader, SheetTitle } from "../ui/Sheet";
 import { P, Span } from "../styledComponents/Text";
 
 import empty from "@public/no-product.json";
 import { useCartContext } from "../providers/CartProvider";
 import { ProductCartComponent } from "./ProductCart";
 import { Button } from "../styledComponents/Button";
+import { createCheckout } from "@/actions/checkout";
 
 export const CartComponent = () => {
   const { products, total } = useCartContext();
+
+  const handleFinishPurshaseClick = async () => {
+    const checkout = await createCheckout(products);
+
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+
+    stripe?.redirectToCheckout({
+      sessionId: checkout.id,
+    });
+  };
+
   return (
     <>
       <SheetHeader className="p-6">
@@ -37,8 +49,8 @@ export const CartComponent = () => {
         ))
       )}
       {total > 0 && (
-        <div className="sticky bottom-0 flex w-full grow flex-col">
-          <div className="flex w-full justify-between overflow-x-hidden bg-[var(--primary)] px-6 py-4">
+        <div className="sticky bottom-0 flex w-full grow flex-col justify-end ">
+          <div className="flex w-full justify-between  bg-[var(--primary)] px-6 py-4">
             <Span $fontWeight={700} $fontSize={16}>
               Total:
             </Span>
@@ -53,8 +65,8 @@ export const CartComponent = () => {
           <Button
             $color="#000"
             $borderRadius="none"
-            className="justify-center overflow-x-hidden"
-            onClick={() => toast.success("TODO: Payment flow!")}
+            className="justify-center"
+            onClick={handleFinishPurshaseClick}
           >
             <P $fontWeight={700} className="text-center" $fontSize={16}>
               Finalizar Compra
