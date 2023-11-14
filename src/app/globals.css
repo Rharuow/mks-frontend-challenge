@@ -17,7 +17,7 @@
     --primary-foreground: 210 40% 98%;
 
     --secondary: #eeeeee;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: #666;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -35,8 +35,14 @@
     --radius: 0.5rem;
 
     --dark: #373737;
+    --black: #000;
     --text-dark: #2c2c2c;
     --outline: transparent;
+  }
+
+  :root {
+    --primary: #0f52ba;
+    --secondary: #eeeeee;
   }
 
   .dark {
@@ -49,10 +55,10 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: #08295b;
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: #7e7a7a;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
@@ -83,13 +89,13 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: slategray;
+  background: slategrayZZ[];
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: slategray;
+  background: #b30000;
 }
 
 @layer base {

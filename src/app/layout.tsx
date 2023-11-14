@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { HeaderLayout } from "@/components/ui/HeaderLayout";
 import { FooterLayout } from "@/components/ui/FooterLayout";
 import { CartProvider } from "@/components/providers/CartProvider";
+import { ModeToggle } from "@/components/ModeToggle";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
               defaultTheme="light"
               disableTransitionOnChange
             >
+              <ModeToggle />
               <Toaster />
               <CartProvider>
                 <HeaderLayout />
